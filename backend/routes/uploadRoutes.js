@@ -1,14 +1,9 @@
-import express from "express";
-const router = express.Router();
-import {
-  getProductById,
-  getProducts,
-} from "../controllers/productController.js";
+import path from 'path'
+import express from 'express'
+import multer from 'multer'
+const router = express.Router()
 
-router.route("/").get(getProducts);
-router.route("/:id").get(getProductById);
-
-/* const storage = multer.diskStorage({
+const storage = multer.diskStorage({
   destination(req, file, cb) {
     cb(null, 'uploads/')
   },
@@ -41,6 +36,6 @@ const upload = multer({
 
 router.post('/', upload.single('image'), (req, res) => {
   res.send(`/${req.file.path}`)
-}) */
+})
 
-export default router;
+export default router
